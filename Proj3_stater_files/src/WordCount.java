@@ -21,7 +21,7 @@ public class WordCount extends MapperReducerAPI{
 	    int count = 0;
 	    while ((MapReduce.MRGetNext(key, partition_number)) != null)
 	        count++;
-	    MapReduce.MRPostProcess((String)key, count);
+	    MapReduce.MRPostProcess((String)key, String.valueOf(count));
 	}
 
     public static void main(String[] argv) {

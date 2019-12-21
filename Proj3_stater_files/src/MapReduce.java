@@ -57,9 +57,11 @@ public class MapReduce {
 		teardown();
 
 	}
-	public static void MRPostProcess(String key, int value) {
+	//not really on critical path: this is just a function
+	//to store outcome into a file for testing
+	public static void MRPostProcess(String key, String value) {
 		pwLock.lock();
-		pw.printf("%s:%d\n", (String)key, value); 
+		pw.printf("%s:%s\n", key, value); 
 		pwLock.unlock();
 	}
 	private static void setup (int nSplits, String inputFile) {
